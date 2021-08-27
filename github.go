@@ -36,7 +36,7 @@ func updateAndApplyFromGithub() {
 	fmt.Println(date)
 
 	if date.After(lastCommitDate) {
-		localRepositoryDirectory := "c:/Temp/local-kube"
+		localRepositoryDirectory := "/repo"
 		repositoryUrl := "https://github.com/natery2000/local-kube"
 
 		fmt.Println("Cloning repository")
