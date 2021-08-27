@@ -64,7 +64,7 @@ func updateAndApplyFromGithub() {
 
 		fmt.Println("Applying new yaml files")
 		cmd := exec.Command("kubectl", "apply", "-f", ".", "--recursive")
-		cmd.Dir = "c:/Temp/local-kube"
+		cmd.Dir = localRepositoryDirectory
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		cmd.Run()
