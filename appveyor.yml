@@ -1,0 +1,9 @@
+image: Ubuntu
+version: 1.0.{build}
+services:
+- docker
+build_script:
+  - sh: docker login -u $dockerhubuser -p $dockerhubpassword
+  - sh: docker build -t natery2000/kube-auto-apply:latest .
+  - sh: docker push natery2000/kube-auto-apply:latest
+test: off
