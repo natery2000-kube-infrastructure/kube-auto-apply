@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bufio"
-	"os"
 	"time"
 )
 
@@ -26,7 +24,7 @@ func schedule(what func(), delay time.Duration) chan bool {
 func main() {
 	schedule(updateAndApplyFromGithub, 1*time.Minute)
 
-	reader := bufio.NewReader(os.Stdin)
-
-	reader.ReadString('\n')
+	for true {
+		time.Sleep(500)
+	}
 }
