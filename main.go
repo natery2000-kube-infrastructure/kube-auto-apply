@@ -22,7 +22,7 @@ func schedule(what func(), delay time.Duration) chan bool {
 }
 
 func main() {
-	schedule(updateAndApplyFromGithub, 1*time.Minute)
+	schedule(updateAndApplyFromGithub, 5*time.Minute)
 
 	for true {
 		time.Sleep(500)
