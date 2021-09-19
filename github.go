@@ -12,6 +12,8 @@ import (
 var lastCommitDate time.Time = time.Date(0, 0, 0, 0, 0, 0, 0, time.UTC)
 
 func updateAndApplyFromGithub() {
+	fmt.Println(time.Now().UTC())
+
 	localRepositoryDirectory := "/repo"
 	repositoryUrl := "https://github.com/natery2000-kube-infrastructure/local-kube"
 
