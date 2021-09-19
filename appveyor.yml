@@ -3,7 +3,7 @@ version: 1.0.{build}
 services:
 - docker
 environment:
-  VERSION: {version}
+  version: APPVEYOR_BUILD_VERSION
 build_script:
   - sh: docker login -u $dockerhubuser -p $dockerhubpassword
   - sh: echo $version
