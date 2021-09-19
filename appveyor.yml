@@ -4,7 +4,7 @@ services:
 - docker
 build_script:
   - sh: docker login -u $dockerhubuser -p $dockerhubpassword
-  - sh: echo APPVEYOR_BUILD_VERSION
-  - sh: docker build -t natery2000/kube-auto-apply:APPVEYOR_BUILD_VERSION .
-  - sh: docker push natery2000/kube-auto-apply:APPVEYOR_BUILD_VERSION
+  - sh: echo $(APPVEYOR_BUILD_VERSION)
+  - sh: docker build -t natery2000/kube-auto-apply:$(APPVEYOR_BUILD_VERSION) .
+  - sh: docker push natery2000/kube-auto-apply:$(APPVEYOR_BUILD_VERSION)
 test: off
