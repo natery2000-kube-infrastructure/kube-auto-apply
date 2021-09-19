@@ -7,7 +7,8 @@ environment:
 build_script:
   - sh: docker login -u $dockerhubuser -p $dockerhubpassword
   - sh: echo $VERSION
-  - sh: export CONTAINER_VERSION=
-  - sh: docker build -t natery2000/kube-auto-apply:$(VERSION) .
-  - sh: docker push natery2000/kube-auto-apply:$(VERSION)
+  - sh: export CONTAINER_VERSION="natery2000/kube-auto-apply:$(VERSION)"
+  - sh: echo $CONTAINER_VERSION
+  - sh: docker build -t $CONTAINER_VERSION .
+  - sh: docker push $CONTAINER_VERSION
 test: off
