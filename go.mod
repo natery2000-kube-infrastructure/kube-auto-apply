@@ -1,4 +1,4 @@
-module github.com/natery2000/kube-auto-apply
+module github.com/natery2000-kube-infrastructure/kube-auto-apply
 
 go 1.17
 
