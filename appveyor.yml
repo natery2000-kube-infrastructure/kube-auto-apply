@@ -2,9 +2,11 @@ image: Ubuntu
 version: 1.0.{build}
 services:
 - docker
+environment:
+  VERSION: $(APPVEYOR_BUILD_VERSION)
 build_script:
   - sh: docker login -u $dockerhubuser -p $dockerhubpassword
-  - sh: echo $(APPVEYOR_BUILD_VERSION)
-  - sh: docker build -t natery2000/kube-auto-apply:$(APPVEYOR_BUILD_VERSION) .
-  - sh: docker push natery2000/kube-auto-apply:$(APPVEYOR_BUILD_VERSION)
+  - sh: echo $VERSION
+  - sh: docker build -t natery2000/kube-auto-apply:$VERSION .
+  - sh: docker push natery2000/kube-auto-apply:$VERSION
 test: off
