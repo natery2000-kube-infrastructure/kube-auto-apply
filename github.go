@@ -13,7 +13,7 @@ var lastCommitDate time.Time = time.Date(0, 0, 0, 0, 0, 0, 0, time.UTC)
 
 func updateAndApplyFromGithub() {
 	localRepositoryDirectory := "/repo"
-	repositoryUrl := "https://github.com/natery2000/local-kube"
+	repositoryUrl := "https://github.com/natery2000-kube-infrastructure/local-kube"
 
 	fmt.Println("Cloning repository")
 	repo, err := git.PlainClone(localRepositoryDirectory, false, &git.CloneOptions{URL: repositoryUrl, Progress: os.Stdout})
