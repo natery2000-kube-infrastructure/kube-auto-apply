@@ -4,6 +4,8 @@ services:
 - docker
 build_script:
   - sh: docker login -u $dockerhubuser -p $dockerhubpassword
+  - sh: echo $version
+  - sh: echo $VERSION
   - sh: docker build -t natery2000/kube-auto-apply:$version .
   - sh: docker push natery2000/kube-auto-apply:$version
 test: off
