@@ -4,27 +4,23 @@ import (
 	"time"
 )
 
-func schedule(what func(), delay time.Duration) chan bool {
-	stop := make(chan bool)
+func runAtInterval(what func(), delay time.Duration) {
+	ticker := time.NewTicker(delay)
+	quit := make(chan struct{})
 
 	go func() {
 		for {
-			what()
 			select {
-			case <-time.After(delay):
-			case <-stop:
+			case <-ticker.C:
+				what()
+			case <-quit:
+				ticker.Stop()
 				return
 			}
 		}
 	}()
-
-	return stop
 }
 
 func main() {
-	schedule(updateAndApplyFromGithub, 5*time.Minute)
-
-	for true {
-		time.Sleep(500)
-	}
+	runAtInterval(updateAndApplyFromGithub, 5*time.Minute)
 }
