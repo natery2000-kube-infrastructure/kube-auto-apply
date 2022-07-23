@@ -5,20 +5,9 @@ import (
 )
 
 func runAtInterval(what func(), delay time.Duration) {
-	ticker := time.NewTicker(delay)
-	quit := make(chan struct{})
-
-	go func() {
-		for {
-			select {
-			case <-ticker.C:
-				what()
-			case <-quit:
-				ticker.Stop()
-				return
-			}
-		}
-	}()
+	for range time.Tick(delay) {
+		what()
+	}
 }
 
 func main() {
